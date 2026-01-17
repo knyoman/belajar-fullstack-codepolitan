@@ -1,9 +1,58 @@
-✨ **Tentang Repository**
+# 🚀 Fullstack Web Developer Journey
 
-Repositori ini merupakan dokumentasi lengkap perjalanan belajar **Fullstack Web Developer** melalui platform **CodePolitan**.  
-Berisi kumpulan **catatan pembelajaran, source code, eksperimen, serta project latihan** yang disusun secara bertahap dan terstruktur.
+> Dokumentasi lengkap perjalanan belajar **Fullstack Web Developer** melalui platform **CodePolitan**
 
-Pembahasan dimulai dari pengembangan **Frontend** untuk membangun antarmuka yang responsif dan interaktif, dilanjutkan dengan **Backend** untuk pengelolaan logika aplikasi dan REST API, serta **Database** untuk manajemen dan penyimpanan data.  
-Tahap akhir mencakup **Deployment**, sehingga aplikasi yang dibangun siap digunakan dan diakses secara online.
+---
 
-Repositori ini tidak hanya berfungsi sebagai arsip pembelajaran, tetapi juga sebagai **referensi teknis dan portofolio** yang mencerminkan pemahaman end-to-end dalam pengembangan aplikasi web modern berbasis teknologi industri.
+## 📋 Deskripsi
+
+Repositori ini merupakan dokumentasi komprehensif yang berisi:
+
+- 📚 **Catatan Pembelajaran** - Ringkasan materi dan konsep penting
+- 💻 **Source Code** - Implementasi nyata dari setiap topik
+- 🧪 **Eksperimen** - Percobaan dan explorasi teknologi
+- 🎯 **Project Latihan** - Project-project praktis yang terstruktur
+
+Semua materi disusun secara **bertahap dan sistematis** untuk memudahkan pembelajaran progresif.
+
+---
+
+## 🎓 Kurikulum Pembelajaran
+
+Perjalanan belajar mencakup **4 tahap utama**:
+
+### 1️⃣ **Frontend Development**
+Membangun antarmuka yang responsif, interaktif, dan user-friendly
+
+### 2️⃣ **Backend Development**
+Mengembangkan logika aplikasi, REST API, dan server-side logic
+
+### 3️⃣ **Database Management**
+Manajemen data, design schema, dan optimasi query database
+
+### 4️⃣ **Deployment**
+Deployment aplikasi dan siap untuk production environment
+
+---
+
+## 🎯 Tujuan Repository
+
+Repository ini berfungsi sebagai:
+
+✅ **Arsip Pembelajaran** - Dokumentasi proses belajar yang terstruktur  
+✅ **Referensi Teknis** - Dokumentasi solusi teknis dan best practices  
+✅ **Portfolio Profesional** - Memvalidasi kemampuan fullstack development  
+✅ **Resource Sharing** - Berbagi knowledge dengan komunitas developer  
+
+---
+
+## 📞 Connect & Contribute
+
+Jika ada pertanyaan, saran, atau ingin berkontribusi:
+- 📧 Email: [nyomankusuma54@gmail.com]
+- 💬 Discussion: GitHub Issues
+- 🤝 Pull Requests: Sangat diterima!
+
+---
+
+**Last Updated:** January 2026 ✨
