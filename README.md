@@ -13,25 +13,7 @@ Repositori ini merupakan dokumentasi komprehensif yang berisi:
 - 🧪 **Eksperimen** - Percobaan dan explorasi teknologi
 - 🎯 **Project Latihan** - Project-project praktis yang terstruktur
 
-Semua materi disusun secara **bertahap dan sistematis** untuk memudahkan pembelajaran progresif.
-
----
-
-## 🎓 Kurikulum Pembelajaran
-
-Perjalanan belajar mencakup **4 tahap utama**:
-
-### 1️⃣ **Frontend Development**
-Membangun antarmuka yang responsif, interaktif, dan user-friendly
-
-### 2️⃣ **Backend Development**
-Mengembangkan logika aplikasi, REST API, dan server-side logic
-
-### 3️⃣ **Database Management**
-Manajemen data, design schema, dan optimasi query database
-
-### 4️⃣ **Deployment**
-Deployment aplikasi dan siap untuk production environment
+Semua materi disusun secara **bertahap dan sistematis** untuk memudahkan arsip pembelajaran saya.
 
 ---
 
