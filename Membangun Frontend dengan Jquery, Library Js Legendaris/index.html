@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial jQuery: Dasar hingga Mahir</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: #f4f4f4;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #0066cc;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #0066cc;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            color: #333;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .example-section {
+            background: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-left: 4px solid #0066cc;
+            border-radius: 4px;
+        }
+
+        code {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+
+        pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+        }
+
+        .demo-box {
+            background: #e3f2fd;
+            border: 1px solid #0066cc;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+
+        button {
+            background: #0066cc;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background: #0052a3;
+        }
+
+        .output {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .note {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+
+        input,
+        select,
+        textarea {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 5px;
+        }
+
+        .highlight {
+            background: #ffeb3b;
+            padding: 2px 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>📚 Tutorial jQuery: Dari Dasar hingga Mahir</h1>
+        <p style="color: #666; margin-bottom: 30px;">Panduan lengkap untuk menguasai jQuery dengan contoh praktis dan
+            interaktif</p>
+
+        <!-- BAGIAN 1: PENGENALAN JQUERY -->
+        <h2>1️⃣ Pengenalan jQuery</h2>
+        <div class="example-section">
+            <h3>Apa itu jQuery?</h3>
+            <p>jQuery adalah library JavaScript yang mempermudah manipulasi DOM, handling events, dan AJAX. Syntax-nya
+                lebih singkat dibanding vanilla JavaScript.</p>
+            <pre>// Cara lama (Vanilla JS)
+document.getElementById('myId').style.color = 'red';
+
+// Cara jQuery (lebih singkat)
+$('#myId').css('color', 'red');</pre>
+        </div>
+
+        <!-- BAGIAN 2: SELECTORS -->
+        <h2>2️⃣ jQuery Selectors</h2>
+
+        <div class="example-section">
+            <h3>a) Selector Dasar</h3>
+            <p>Syntax: <code>$(selector)</code> - Memilih elemen HTML</p>
+            <pre>// ID Selector (memilih elemen dengan id tertentu)
+$('#myId')
+
+// Class Selector (memilih elemen dengan class tertentu)
+$('.myClass')
+
+// Element Selector (memilih semua elemen tertentu)
+$('p')
+
+// Attribute Selector (memilih berdasarkan atribut)
+$('[name="username"]')</pre>
+            <div class="demo-box">
+                <button id="btn-selector-1">Coba: Ubah Warna Paragraph</button>
+                <p id="target-p">Ini adalah paragraph yang akan berubah warna</p>
+            </div>
+        </div>
+
+        <div class="example-section">
+            <h3>b) Selector Kombinasi</h3>
+            <pre>// Descendant Selector
+$('div p')  // Semua p di dalam div
+
+// Child Selector
+$('div > p')  // p yang merupakan child langsung dari div
+
+// Multiple Selector
+$('h1, p, span')  // Semua h1, p, dan span
+
+// Filter
+$('p:first')  // p pertama
+$('p:last')   // p terakhir
+$('p:even')   // p dengan index genap
+$('p:odd')    // p dengan index ganjil</pre>
+        </div>
+
+        <!-- BAGIAN 3: DOM MANIPULATION -->
+        <h2>3️⃣ DOM Manipulation (Memanipulasi Elemen)</h2>
+
+        <div class="example-section">
+            <h3>a) Mengubah Konten</h3>
+            <pre>// html() - Mengubah/mengambil HTML
+$('#myId').html('&lt;b&gt;Konten Baru&lt;/b&gt;');
+
+// text() - Mengubah/mengambil text
+$('#myId').text('Hanya Text');
+
+// val() - Mengubah/mengambil value input
+$('#input').val('Nilai Baru');</pre>
+            <div class="demo-box">
+                <button id="btn-content-1">Ubah HTML</button>
+                <button id="btn-content-2">Ubah Text</button>
+                <button id="btn-content-3">Reset</button>
+                <div id="content-target">Konten Asli</div>
+            </div>
+        </div>
+
+        <div class="example-section">
+            <h3>b) Mengubah Atribut</h3>
+            <pre>// attr() - Mengubah/mengambil atribut
+$('img').attr('src', 'gambar.jpg');
+$('a').attr('href', 'https://google.com');
+
+// removeAttr() - Menghapus atribut
+$('input').removeAttr('disabled');</pre>
+            <div class="demo-box">
+                <button id="btn-attr-1">Ubah Placeholder Input</button>
+                <input type="text" id="input-attr" placeholder="Placeholder Awal">
+                <button id="btn-attr-2">Reset</button>
+            </div>
+        </div>
+
+        <div class="example-section">
+            <h3>c) Mengubah CSS</h3>
+            <pre>// css() - Mengubah style CSS
+$('#myId').css('color', 'red');
+$('#myId').css('background', 'yellow');
+
+// Mengubah multiple properties
+$('#myId').css({
+    'color': 'red',
+    'background': 'yellow',
+    'font-size': '20px'
+});
+
+// addClass() - Menambah class
+$('#myId').addClass('active');
+
+// removeClass() - Menghapus class
+$('#myId').removeClass('active');
+
+// toggleClass() - Toggle class
+$('#myId').toggleClass('active');</pre>
+            <div class="demo-box">
+                <button id="btn-css-1">addClass</button>
+                <button id="btn-css-2">removeClass</button>
+                <button id="btn-css-3">toggleClass</button>
+                <div id="css-target" style="padding: 20px; margin-top: 10px;">Elemen Target</div>
+            </div>
+            <style>
+                .active {
+                    background: #ff6b6b !important;
+                    color: white !important;
+                    transform: scale(1.1);
+                }
+            </style>
+        </div>
+
+        <div class="example-section">
+            <h3>d) Membuat/Menghapus Elemen</h3>
+            <pre>// append() - Menambah elemen di akhir
+$('#container').append('&lt;p&gt;Elemen Baru&lt;/p&gt;');
+
+// prepend() - Menambah elemen di awal
+$('#container').prepend('&lt;p&gt;Elemen Baru&lt;/p&gt;');
+
+// after() - Menambah elemen setelah
+$('#myId').after('&lt;p&gt;Setelah&lt;/p&gt;');
+
+// before() - Menambah elemen sebelum
+$('#myId').before('&lt;p&gt;Sebelum&lt;/p&gt;');
+
+// remove() - Menghapus elemen
+$('#myId').remove();
+
+// empty() - Menghapus semua isi
+$('#container').empty();</pre>
+            <div class="demo-box">
+                <button id="btn-elem-1">Append</button>
+                <button id="btn-elem-2">Prepend</button>
+                <button id="btn-elem-3">Remove Last</button>
+                <div id="elem-container" style="border: 1px solid #0066cc; padding: 10px; margin-top: 10px;">
+                    <p>Elemen Awal</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- BAGIAN 4: EVENTS -->
+        <h2>4️⃣ jQuery Events (Penanganan Kejadian)</h2>
+
+        <div class="example-section">
+            <h3>a) Event Dasar</h3>
+            <pre>// click() - Klik
+$('#btn').click(function() {
+    console.log('Tombol diklik');
+});
+
+// on() - Cara modern & lebih fleksibel
+$('#btn').on('click', function() {
+    console.log('Tombol diklik');
+});
+
+// off() - Menghapus event
+$('#btn').off('click');</pre>
+            <div class="demo-box">
+                <button id="btn-click">Klik Tombol Ini</button>
+                <div id="click-output" class="output" style="display: block; margin-top: 10px;">Output: Siap di-klik
+                </div>
+            </div>
+        </div>
+
+        <div class="example-section">
+            <h3>b) Event Form</h3>
+            <pre>// focus() - Saat input fokus
+$('#input').focus(function() {
+    console.log('Input fokus');
+});
+
+// blur() - Saat input blur (keluar fokus)
+$('#input').blur(function() {
+    console.log('Input blur');
+});
+
+// change() - Saat value berubah
+$('#select').change(function() {
+    var value = $(this).val();
+});
+
+// submit() - Saat form disubmit
+$('form').submit(function(e) {
+    e.preventDefault(); // Cegah default behavior
+});</pre>
+            <div class="demo-box">
+                <input type="text" id="input-focus" placeholder="Focus di sini untuk demo">
+                <select id="select-demo">
+                    <option value="">-- Pilih --</option>
+                    <option value="1">Opsi 1</option>
+                    <option value="2">Opsi 2</option>
+                </select>
+                <div id="form-output" class="output" style="display: block; margin-top: 10px;">Output: Belum ada event
+                </div>
+            </div>
+        </div>
+
+        <div class="example-section">
+            <h3>c) Mouse Events</h3>
+            <pre>// mouseenter() - Kursor masuk
+$('#element').mouseenter(function() { });
+
+// mouseleave() - Kursor keluar
+$('#element').mouseleave(function() { });
+
+// hover() - Gabungan mouseenter & mouseleave
+$('#element').hover(
+    function() { /* Masuk */ },
+    function() { /* Keluar */ }
+);
+
+// mousemove() - Kursor bergerak
+$('#element').mousemove(function(e) {
+    console.log(e.pageX, e.pageY);
+});</pre>
+            <div class="demo-box">
+                <div id="hover-demo"
+                    style="width: 200px; height: 100px; background: #007bff; color: white; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+                    Hover di sini
+                </div>
+            </div>
+        </div>
+
+        <!-- BAGIAN 5: EFFECTS & ANIMATIONS -->
+        <h2>5️⃣ Effects & Animations (Efek & Animasi)</h2>
+
+        <div class="example-section">
+            <h3>a) Show/Hide/Toggle</h3>
+            <pre>// show() - Tampilkan
+$('#myId').show();
+$('#myId').show(1000); // Durasi 1 detik
+
+// hide() - Sembunyikan
+$('#myId').hide();
+$('#myId').hide(500);
+
+// toggle() - Toggle
+$('#myId').toggle();</pre>
+            <div class="demo-box">
+                <button id="btn-show">Show</button>
+                <button id="btn-hide">Hide</button>
+                <button id="btn-toggle">Toggle</button>
+                <div id="show-hide-target" style="background: #28a745; color: white; padding: 20px; margin-top: 10px;">
+                    Elemen yang akan ditampilkan/disembunyikan
+                </div>
+            </div>
+        </div>
+
+        <div class="example-section">
+            <h3>b) Fade Effects</h3>
+            <pre>// fadeIn() - Fade masuk
+$('#myId').fadeIn(1000);
+
+// fadeOut() - Fade keluar
+$('#myId').fadeOut(1000);
+
+// fadeToggle() - Toggle fade
+$('#myId').fadeToggle(800);
+
+// fadeTo() - Fade ke opacity tertentu
+$('#myId').fadeTo(1000, 0.5); // 50% opacity</pre>
+            <div class="demo-box">
+                <button id="btn-fadein">Fade In</button>
+                <button id="btn-fadeout">Fade Out</button>
+                <button id="btn-fadetoggle">Fade Toggle</button>
+                <div id="fade-target" style="background: #ffc107; padding: 20px; margin-top: 10px;">
+                    Fade Effect
+                </div>
+            </div>
+        </div>
+
+        <div class="example-section">
+            <h3>c) Slide Effects</h3>
+            <pre>// slideDown() - Slide bawah
+$('#myId').slideDown(1000);
+
+// slideUp() - Slide atas
+$('#myId').slideUp(1000);
+
+// slideToggle() - Toggle slide
+$('#myId').slideToggle(800);</pre>
+            <div class="demo-box">
+                <button id="btn-slidedown">Slide Down</button>
+                <button id="btn-slideup">Slide Up</button>
+                <button id="btn-slidetoggle">Slide Toggle</button>
+                <div id="slide-target"
+                    style="background: #17a2b8; color: white; padding: 20px; margin-top: 10px; display: none;">
+                    Slide Effect
+                </div>
+            </div>
+        </div>
+
+        <div class="example-section">
+            <h3>d) Custom Animation</h3>
+            <pre>// animate() - Animasi custom
+$('#myId').animate({
+    left: '250px',
+    opacity: 0.5,
+    height: '150px'
+}, 1000);
+
+// delay() - Jeda sebelum animasi berikutnya
+$('#myId')
+    .delay(500)
+    .fadeOut()
+    .delay(500)
+    .fadeIn();</pre>
+            <div class="demo-box">
+                <button id="btn-animate-1">Animate Left</button>
+                <button id="btn-animate-2">Animate Opacity</button>
+                <button id="btn-animate-reset">Reset</button>
+                <div id="animate-target"
+                    style="background: #6f42c1; color: white; padding: 20px; margin-top: 10px; position: relative;">
+                    Custom Animation
+                </div>
+            </div>
+        </div>
+
+        <!-- BAGIAN 6: TRAVERSING -->
+        <h2>6️⃣ jQuery Traversing (Navigasi DOM)</h2>
+
+        <div class="example-section">
+            <h3>Menavigasi Elemen</h3>
+            <pre>// parent() - Parent elemen
+$('#child').parent();
+
+// children() - Semua child
+$('#parent').children();
+
+// find() - Cari di dalamnya
+$('#parent').find('p');
+
+// siblings() - Elemen sejajar
+$('#element').siblings();
+
+// next() - Elemen berikutnya
+$('#element').next();
+
+// prev() - Elemen sebelumnya
+$('#element').prev();
+
+// eq() - Ambil index tertentu
+$('p').eq(2); // p ketiga
+
+// first() / last() - Element pertama/terakhir
+$('p').first();
+$('p').last();</pre>
+            <div class="demo-box">
+                <div id="parent-demo" style="border: 2px solid #333; padding: 10px;">
+                    <p>Paragraph 1</p>
+                    <p>Paragraph 2</p>
+                    <p id="target-traverse">Paragraph 3</p>
+                    <p>Paragraph 4</p>
+                </div>
+                <button id="btn-traverse">Ubah Warna siblings</button>
+            </div>
+        </div>
+
+        <!-- BAGIAN 7: AJAX -->
+        <h2>7️⃣ AJAX (Asynchronous JavaScript and XML)</h2>
+
+        <div class="example-section">
+            <h3>Mengambil Data Tanpa Refresh Halaman</h3>
+            <pre>// $.ajax() - Cara lengkap
+$.ajax({
+    url: 'https://api.github.com/users/github',
+    type: 'GET',
+    dataType: 'json',
+    success: function(data) {
+        console.log(data); // Data berhasil diambil
+    },
+    error: function(error) {
+        console.log('Error:', error);
+    }
+});
+
+// $.get() - Cara singkat GET
+$.get('data.json', function(data) {
+    console.log(data);
+});
+
+// $.post() - Cara singkat POST
+$.post('submit.php', { name: 'John' }, function(data) {
+    console.log(data);
+});
+
+// $.getJSON() - Khusus JSON
+$.getJSON('data.json', function(data) {
+    console.log(data);
+});</pre>
+            <div class="demo-box">
+                <button id="btn-ajax">Ambil Data dari GitHub API</button>
+                <div id="ajax-output" class="output" style="display: none; max-height: 200px; overflow-y: auto;">
+                    <strong>Loading...</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- BAGIAN 8: UTILITY FUNCTIONS -->
+        <h2>8️⃣ jQuery Utility Functions</h2>
+
+        <div class="example-section">
+            <h3>Fungsi Utilitas Penting</h3>
+            <pre>// $.each() - Loop
+$.each([1, 2, 3], function(index, value) {
+    console.log(index + ': ' + value);
+});
+
+// $.map() - Transform array
+var doubled = $.map([1, 2, 3], function(val) {
+    return val * 2; // [2, 4, 6]
+});
+
+// $.inArray() - Cari dalam array
+var index = $.inArray(2, [1, 2, 3]); // 1
+
+// $.extend() - Merge object
+var obj = $.extend({a: 1}, {b: 2}); // {a: 1, b: 2}
+
+// $.trim() - Hapus whitespace
+$.trim('  hello  '); // 'hello'
+
+// $.parseJSON() - Parse JSON string
+var obj = $.parseJSON('{"name": "John"}');
+
+// $.isArray() - Cek array
+$.isArray([1, 2, 3]); // true
+
+// $.isEmptyObject() - Cek object kosong
+$.isEmptyObject({}); // true</pre>
+        </div>
+
+        <!-- BAGIAN 9: CHAINING -->
+        <h2>9️⃣ Method Chaining</h2>
+
+        <div class="example-section">
+            <h3>Menggabungkan Method jQuery</h3>
+            <pre>// Tanpa chaining (banyak baris)
+$('#myId').css('color', 'red');
+$('#myId').css('background', 'yellow');
+$('#myId').text('Hello');
+
+// Dengan chaining (lebih efisien)
+$('#myId')
+    .css('color', 'red')
+    .css('background', 'yellow')
+    .text('Hello');
+
+// Bahkan bisa kompleks
+$('#myId')
+    .hide()
+    .delay(500)
+    .show()
+    .fadeOut()
+    .fadeIn();</pre>
+            <div class="demo-box">
+                <button id="btn-chain">Coba Chaining</button>
+                <div id="chain-target" style="padding: 20px; margin-top: 10px;">
+                    Element dengan Chaining
+                </div>
+            </div>
+        </div>
+
+        <!-- BAGIAN 10: BEST PRACTICES -->
+        <h2>🔟 Best Practices & Tips</h2>
+
+        <div class="example-section">
+            <h3>1. Cache jQuery Object</h3>
+            <pre>// ❌ Buruk - Memilih berkali-kali
+$('#myId').css('color', 'red');
+$('#myId').css('font-size', '20px');
+
+// ✅ Baik - Cache sekali saja
+var $element = $('#myId');
+$element.css('color', 'red');
+$element.css('font-size', '20px');</pre>
+        </div>
+
+        <div class="example-section">
+            <h3>2. Gunakan Class untuk Styling</h3>
+            <pre>// ❌ Buruk - Inline CSS
+$('#myId').css({
+    'color': 'red',
+    'background': 'yellow',
+    'padding': '10px'
+});
+
+// ✅ Baik - Gunakan class
+$('#myId').addClass('active-style');
+
+/* CSS */
+.active-style {
+    color: red;
+    background: yellow;
+    padding: 10px;
+}</pre>
+        </div>
+
+        <div class="example-section">
+            <h3>3. Event Delegation</h3>
+            <pre>// ❌ Buruk - Bind setiap element
+$('.btn').click(function() { });
+
+// ✅ Baik - Delegate ke parent (untuk dynamic elements)
+$(document).on('click', '.btn', function() {
+    console.log('Button diklik');
+});</pre>
+        </div>
+
+        <div class="example-section">
+            <h3>4. Gunakan Var/Let untuk Menyimpan Reference</h3>
+            <pre>// ✅ Baik
+var $myElement = $('#myId');
+$myElement.addClass('active');
+$myElement.text('Updated');
+
+// ✅ Lebih Modern (ES6)
+const $myElement = $('#myId');
+$myElement.addClass('active');</pre>
+        </div>
+
+        <div class="example-section">
+            <h3>5. Handle Error dengan Benar</h3>
+            <pre>$.ajax({
+    url: 'data.json',
+    success: function(data) {
+        console.log('Sukses:', data);
+    },
+    error: function(xhr, status, error) {
+        console.log('Error:', error);
+    },
+    complete: function() {
+        // Selalu dijalankan, baik sukses atau error
+        console.log('Request selesai');
+    }
+});</pre>
+        </div>
+
+        <!-- BAGIAN 11: CONTOH PRAKTIS -->
+        <h2>11️⃣ Contoh Praktis: TODO App Mini</h2>
+
+        <div class="example-section">
+            <h3>Simple TODO List</h3>
+            <div class="demo-box">
+                <input type="text" id="todo-input" placeholder="Masukkan TODO...">
+                <button id="btn-todo-add">Tambah</button>
+                <ul id="todo-list" style="list-style: none; margin-top: 15px;">
+                    <li data-id="1" style="padding: 8px; background: #e8f5e9; margin: 5px 0; border-radius: 4px;">
+                        <span>Belajar jQuery</span>
+                        <button class="btn-todo-delete" style="float: right; background: #dc3545;">Hapus</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- BAGIAN 12: CHEAT SHEET -->
+        <h2>12️⃣ Cheat Sheet Ringkas</h2>
+
+        <div class="example-section">
+            <h3>Selectors</h3>
+            <pre>$('#id')          // ID
+$('.class')       // Class
+$('element')      // Tag
+$('[attr="val"]') // Attribute
+$('p:first')      // Filter
+$('div > p')      // Child</pre>
+        </div>
+
+        <div class="example-section">
+            <h3>DOM</h3>
+            <pre>.html()          // Get/Set HTML
+.text()          // Get/Set Text
+.val()           // Get/Set Value
+.attr('x')       // Get/Set Attribute
+.css('prop')     // Get/Set CSS
+.addClass()      // Add Class
+.removeClass()   // Remove Class
+.append()        // Tambah di akhir
+.remove()        // Hapus element</pre>
+        </div>
+
+        <div class="example-section">
+            <h3>Effects</h3>
+            <pre>.show() / .hide() / .toggle()
+.fadeIn() / .fadeOut() / .fadeToggle()
+.slideDown() / .slideUp() / .slideToggle()
+.animate({props}, duration)
+.delay(milliseconds)</pre>
+        </div>
+
+        <div class="example-section">
+            <h3>Events</h3>
+            <pre>.click()         // Click event
+.on('event', fn) // Event delegation
+.off('event')    // Remove event
+.focus() / .blur()
+.change() / .submit()
+.hover(in, out)  // Mouse over</pre>
+        </div>
+
+        <div class="note">
+            <strong>💡 Tips Terakhir:</strong><br>
+            - jQuery membuat DOM manipulation lebih mudah dibanding vanilla JS<br>
+            - Selalu cache jQuery object untuk performa lebih baik<br>
+            - Gunakan method chaining untuk kode yang lebih bersih<br>
+            - Untuk project baru, pertimbangkan Vue.js, React, atau Angular<br>
+            - jQuery masih relevan untuk project legacy atau simple manipulation
+        </div>
+
+    </div>
+
+    <script>
+        // ============ 1. SELECTORS ============
+        $('#btn-selector-1').click(function () {
+            $('#target-p').css('color', 'red').css('font-weight', 'bold');
+        });
+
+        // ============ 2. DOM MANIPULATION ============
+        $('#btn-content-1').click(function () {
+            $('#content-target').html('<b style="color: blue;">HTML Berubah!</b>');
+        });
+
+        $('#btn-content-2').click(function () {
+            $('#content-target').text('Text Berubah!');
+        });
+
+        $('#btn-content-3').click(function () {
+            $('#content-target').text('Konten Asli');
+        });
+
+        // Atribut
+        $('#btn-attr-1').click(function () {
+            $('#input-attr').attr('placeholder', 'Placeholder Baru!');
+        });
+
+        $('#btn-attr-2').click(function () {
+            $('#input-attr').attr('placeholder', 'Placeholder Awal');
+        });
+
+        // CSS
+        $('#btn-css-1').click(function () {
+            $('#css-target').addClass('active');
+        });
+
+        $('#btn-css-2').click(function () {
+            $('#css-target').removeClass('active');
+        });
+
+        $('#btn-css-3').click(function () {
+            $('#css-target').toggleClass('active');
+        });
+
+        // Element
+        var counter = 0;
+        $('#btn-elem-1').click(function () {
+            counter++;
+            $('#elem-container').append('<p>Elemen Baru ' + counter + '</p>');
+        });
+
+        $('#btn-elem-2').click(function () {
+            $('#elem-container').prepend('<p style="color: blue;">Prepend ' + (++counter) + '</p>');
+        });
+
+        $('#btn-elem-3').click(function () {
+            $('#elem-container p:last').remove();
+        });
+
+        // ============ 3. EVENTS ============
+        $('#btn-click').click(function () {
+            $('#click-output').text('Output: Tombol diklik di ' + new Date().toLocaleTimeString());
+        });
+
+        $('#input-focus').on('focus', function () {
+            $('#form-output').text('Output: Input sedang fokus');
+        }).on('blur', function () {
+            $('#form-output').text('Output: Input kehilangan fokus');
+        });
+
+        $('#select-demo').change(function () {
+            var val = $(this).val();
+            $('#form-output').text('Output: Dipilih opsi ' + (val || 'kosong'));
+        });
+
+        // Hover
+        $('#hover-demo').hover(
+            function () {
+                $(this).css('background', '#ff6b6b').text('Hover aktif!');
+            },
+            function () {
+                $(this).css('background', '#007bff').text('Hover keluar');
+            }
+        );
+
+        // ============ 4. EFFECTS & ANIMATIONS ============
+        $('#btn-show').click(function () {
+            $('#show-hide-target').show(500);
+        });
+
+        $('#btn-hide').click(function () {
+            $('#show-hide-target').hide(500);
+        });
+
+        $('#btn-toggle').click(function () {
+            $('#show-hide-target').toggle(500);
+        });
+
+        // Fade
+        $('#btn-fadein').click(function () {
+            $('#fade-target').fadeIn(1000);
+        });
+
+        $('#btn-fadeout').click(function () {
+            $('#fade-target').fadeOut(1000);
+        });
+
+        $('#btn-fadetoggle').click(function () {
+            $('#fade-target').fadeToggle(800);
+        });
+
+        // Slide
+        $('#btn-slidedown').click(function () {
+            $('#slide-target').slideDown(1000);
+        });
+
+        $('#btn-slideup').click(function () {
+            $('#slide-target').slideUp(1000);
+        });
+
+        $('#btn-slidetoggle').click(function () {
+            $('#slide-target').slideToggle(800);
+        });
+
+        // Animate
+        $('#btn-animate-1').click(function () {
+            $('#animate-target').animate({ left: '250px' }, 1000);
+        });
+
+        $('#btn-animate-2').click(function () {
+            $('#animate-target').animate({ opacity: 0.3 }, 1000);
+        });
+
+        $('#btn-animate-reset').click(function () {
+            $('#animate-target')
+                .animate({ left: '0', opacity: 1 }, 1000);
+        });
+
+        // ============ 5. TRAVERSING ============
+        $('#btn-traverse').click(function () {
+            $('#target-traverse').siblings().css('background', '#fff3cd');
+        });
+
+        // ============ 6. AJAX ============
+        $('#btn-ajax').click(function () {
+            var $output = $('#ajax-output');
+            $output.show().html('Loading...');
+
+            $.ajax({
+                url: 'https://api.github.com/users/github',
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    $output.html(`
+                        <strong>Nama:</strong> ${data.name}<br>
+                        <strong>Bio:</strong> ${data.bio}<br>
+                        <strong>Followers:</strong> ${data.followers}<br>
+                        <strong>Public Repos:</strong> ${data.public_repos}
+                    `);
+                },
+                error: function (error) {
+                    $output.html('<span style="color: red;">Error: ' + error.status + '</span>');
+                }
+            });
+        });
+
+        // ============ 7. CHAINING ============
+        $('#btn-chain').click(function () {
+            $('#chain-target')
+                .css('background', '#6f42c1')
+                .css('color', 'white')
+                .text('Chaining Works!')
+                .slideUp(300)
+                .delay(500)
+                .slideDown(300);
+        });
+
+        // ============ 8. TODO APP ============
+        $('#btn-todo-add').click(function () {
+            var input = $('#todo-input');
+            var text = input.val();
+
+            // Validasi input tidak kosong
+            if (text.trim() === '') {
+                alert('Masukkan TODO terlebih dahulu!');
+                return;
+            }
+
+            // Buat item baru
+            var newItem = $('<li>')
+                .attr('data-id', Date.now())
+                .css({
+                    'padding': '8px',
+                    'background': '#e8f5e9',
+                    'margin': '5px 0',
+                    'border-radius': '4px'
+                })
+                .html(
+                    '<span>' + text + '</span>' +
+                    '<button class="btn-todo-delete" style="float: right; background: #dc3545;">Hapus</button>'
+                );
+
+            // Tambah ke list
+            $('#todo-list').append(newItem);
+
+            // Clear input
+            input.val('').focus();
+        });
+
+        // Delete TODO dengan event delegation
+        $(document).on('click', '.btn-todo-delete', function () {
+            $(this).closest('li').fadeOut(300, function () {
+                $(this).remove();
+            });
+        });
+
+        // Enter key untuk add
+        $('#todo-input').keypress(function (e) {
+            if (e.which === 13) { // Enter key
+                $('#btn-todo-add').click();
+            }
+        });
+
+    </script>
+</body>
+
+</html>
