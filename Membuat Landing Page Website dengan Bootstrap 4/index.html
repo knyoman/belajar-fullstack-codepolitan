@@ -1,15 +1,21 @@
+<!DOCTYPE html>
 <html>
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Komunitas Coding - Landing Page</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
         body {
-            padding: 56px 0 0 0;
+            padding-top: 56px;
+            font-family: sans-serif;
         }
 
         .jumbotron {
-            text-shadow: #000 1px 1px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 0;
         }
 
         .navbar-brand img {
@@ -17,24 +23,32 @@
             width: auto;
         }
 
-        .backroun-header {
-            background-image: url('images/banner.jpeg');
+        .header-background {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/banner.jpeg');
             background-color: #fafbfc;
-            height: 400px;
+            height: 500px;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
+        .btn-primary {
+            background-color: #08eb1a;
+            border-color: #08eb1a;
         }
 
         .btn-primary:hover {
-            background-color: #08eb1a;
-            border-color: #d4d9dd;
+            background-color: #06c215;
+            border-color: #06c215;
         }
 
         .service-style {
-            margin-top: 15px;
+            padding-top: 30px;
+            padding-bottom: 30px;
             background-color: #fafbfc;
         }
 
@@ -43,53 +57,96 @@
         }
 
         .bg-red {
-            background-color: rgb(255, 34, 244);
+            background-color: #dc3545;
+        }
+
+        .bg-red:hover {
+            background-color: #c82333;
+            color: white;
+            text-decoration: none;
+        }
+
+        h2.display-4 {
+            font-weight: 300;
+            font-size: 2.5rem;
         }
 
         h2::before,
         h2::after {
-            background-color: #06fd06;
+            background-color: #08eb1a;
             content: "";
             display: inline-block;
             position: relative;
             vertical-align: middle;
-            width: 50%;
-            height: 1px;
-        }
-
-        h2::before {
-            right: 0.5em;
-            margin-left: -50%;
-        }
-
-        h2::after {
-            left: 0.5em;
-            margin-right: -50%;
+            width: 50px;
+            height: 2px;
+            margin: 0 15px;
         }
 
         .button-sekunder {
             background-color: transparent;
-            border-color: #dbdbdb;
-            color: #0b9;
+            border: 1px solid #dbdbdb;
+            color: #08eb1a;
+            padding: 0.45rem 0.9rem;
+            transition: 0.3s;
         }
 
         .button-sekunder:hover {
             background-color: #08eb1a;
-            border-color: #d4d9dd;
+            border-color: #08eb1a;
             color: #fff;
         }
 
+        .button-primer {
+            background-color: #08eb1a;
+            color: #fff;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            transition: 0.3s;
+        }
+
+        .button-primer:hover {
+            background-color: #06c215;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .card {
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-img-top {
+            height: 250px;
+            object-fit: cover;
+        }
+
         .cover {
-            background: no-repeat center/cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            min-height: 400px;
+        }
+
+        footer {
+            padding: 20px 0;
         }
     </style>
 </head>
 
 <body>
-    <!--Navigasi bar-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
         <div class="container">
-            <a href="index.html" class="navbar-brand"><img src="images/logo.png" alt="Logo"> Komunitas Coding</a>
+            <a href="index.html" class="navbar-brand">
+                <img src="images/logo.png" alt="Logo"> Komunitas Coding
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
                 aria-controls="navBarContent" aria-expanded="false" aria-label="Toggle Navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -112,152 +169,176 @@
                         <a href="#contact" class="nav-link">Contact</a>
                     </li>
                 </ul>
-
             </div>
         </div>
     </nav>
 
-    <!--Header-->
-    <section id="home" class="jumbotron jumbotron-fluid backroun-header">
-        <div class="container-fluid text-center">
-            <h1 class="display-3" style="color: aliceblue;">Welcome to Our Website</h1>
-            <p class="lead" style="font-weight: bold;color: #fff;">Mari belajar bersama kami</p>
+    <section id="home" class="jumbotron jumbotron-fluid header-background">
+        <div class="container text-center">
+            <h1 class="display-3 font-weight-bold" style="color: aliceblue;">Welcome to Our Website</h1>
+            <p class="lead" style="font-weight: bold; color: #fff; margin-bottom: 30px;">Mari belajar bersama kami</p>
             <p>
-                <a href="#" class="btn btn-primary" role="button">Gabung Sekarang</a>
-                <a href="#" class="btn btn-secondary" role="button">Pelajari Dulu</a>
+                <a href="#" class="btn btn-primary btn-lg mr-2" role="button">Gabung Sekarang</a>
+                <a href="#" class="btn btn-light btn-lg" role="button">Pelajari Dulu</a>
             </p>
         </div>
     </section>
 
-    <!--Service-->
     <section id="services" class="services container-fluid service-style">
-        <div class="row text-center">
-            <div class="col-12 pb-4">
-                <h2 class="display-4">Mengapa Bergabung Bersama kami?</h2>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3">
-                <span class="fa-stack fa-2x">
-                    <i class="fas fa-circle fa-stack-2x text-green"></i>
-                    <i class="fas fa-list fa-stack-1x text-white"></i>
-                </span>
-                <h3 class="mt-4 text-green">Fasilitas kami</h3>
-                <p>Fasilitas yang kami sediakan sangat lengkap dan nyaman</p>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3">
-                <span class="fa-stack fa-2x">
-                    <i class="fas fa-circle fa-stack-2x text-green"></i>
-                    <i class="fas fa-laptop-code fa-stack-1x text-white"></i>
-                </span>
-                <h3 class="mt-4 text-green">Module Lengkap</h3>
-                <p>Lebih dari 1000 modul yang tersedia</p>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3">
-                <span class="fa-stack fa-2x">
-                    <i class="fas fa-circle fa-stack-2x text-green"></i>
-                    <i class="fas fa-money-bill fa-stack-1x text-white"></i>
-                </span>
-                <h3 class="mt-4 text-green">Biaya Terjangkau</h3>
-                <p>Biaya sangat terjangkau</p>
-            </div>
-            <div class="col-12 pt-3 mb-5">
-                <a href="#" class="btn text-white bg-red btn-lg" target="_blank" role="button">Service Lainnya</a>
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-12 pb-5">
+                    <h2 class="display-4" style="margin-top: 2rem!important;">Mengapa Bergabung Bersama kami?</h2>
+                </div>
+                <div class="col-12 col-md-4 mb-4">
+                    <span class="fa-stack fa-2x">
+                        <i class="fas fa-circle fa-stack-2x text-green"></i>
+                        <i class="fas fa-list fa-stack-1x text-white"></i>
+                    </span>
+                    <h3 class="mt-4 text-green">Fasilitas kami</h3>
+                    <p>Fasilitas yang kami sediakan sangat lengkap dan nyaman untuk menunjang pembelajaran.</p>
+                </div>
+                <div class="col-12 col-md-4 mb-4">
+                    <span class="fa-stack fa-2x">
+                        <i class="fas fa-circle fa-stack-2x text-green"></i>
+                        <i class="fas fa-laptop-code fa-stack-1x text-white"></i>
+                    </span>
+                    <h3 class="mt-4 text-green">Module Lengkap</h3>
+                    <p>Lebih dari 1000 modul eksklusif yang tersedia dan terus diperbarui.</p>
+                </div>
+                <div class="col-12 col-md-4 mb-4">
+                    <span class="fa-stack fa-2x">
+                        <i class="fas fa-circle fa-stack-2x text-green"></i>
+                        <i class="fas fa-money-bill fa-stack-1x text-white"></i>
+                    </span>
+                    <h3 class="mt-4 text-green">Biaya Terjangkau</h3>
+                    <p>Biaya pendidikan yang sangat terjangkau dengan kualitas terbaik.</p>
+                </div>
+                <div class="col-12 pt-3 mb-5">
+                    <a href="#" class="btn text-white bg-red btn-lg shadow-sm" target="_blank" role="button">Service
+                        Lainnya</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!--Product-->
     <section id="product" class="container">
         <div class="row text-center">
             <div class="col-12 pb-4">
-                <h2 class="display-4 text-center mb-5">Product Kami</h2>
+                <h2 class="display-4 text-center mb-5" style="margin-top: 4rem!important;">Product Kami</h2>
             </div>
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <img src="images/Product.jpeg" class="card-img-top" style="max-height: 400px;">
+                    <img src="images/Product.jpeg" class="card-img-top" alt="Membuat Aplikasi">
                     <div class="card-body">
                         <h4 class="card-title">Membuat Aplikasi</h4>
-                        <p class="card-text">Belajar membuat aplikasi berbasis AI</p>
+                        <p class="card-text">Belajar langkah demi langkah membuat aplikasi berbasis AI.</p>
                     </div>
-                    <div class="card-footer text-center">
-                        <a href="#" class="btn button-sekunder btn-outline-secondary" role="button">Detail Harga</a>
+                    <div class="card-footer bg-white border-top-0 pb-4">
+                        <a href="#" class="btn button-sekunder btn-block" role="button">Detail Harga</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <img src="images/product2.jpeg" class="card-img-top" style="max-height: 400px;">
+                    <img src="images/product2.jpeg" class="card-img-top" alt="Koding AI">
                     <div class="card-body">
                         <h4 class="card-title">Koding AI</h4>
-                        <p class="card-text">Belajar kecerdasan buatan AI</p>
+                        <p class="card-text">Menguasai dasar hingga mahir dalam pemrograman kecerdasan buatan.</p>
                     </div>
-                    <div class="card-footer text-center">
-                        <a href="#" class="btn button-sekunder btn-outline-secondary" role="button">Detail Harga</a>
+                    <div class="card-footer bg-white border-top-0 pb-4">
+                        <a href="#" class="btn button-sekunder btn-block" role="button">Detail Harga</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <img src="images/product3.jpeg" class="card-img-top" style="max-height: 400px;">
+                    <img src="images/product3.jpeg" class="card-img-top" alt="Buku Pendamping">
                     <div class="card-body">
                         <h4 class="card-title">Buku Pendamping</h4>
-                        <p class="card-text">Belajar kecerdasan AI</p>
+                        <p class="card-text">Buku panduan lengkap sebagai referensi belajar kecerdasan AI.</p>
                     </div>
-                    <div class="card-footer text-center">
-                        <a href="#" class="btn button-sekunder btn-outline-secondary" role="button">Detail Harga</a>
+                    <div class="card-footer bg-white border-top-0 pb-4">
+                        <a href="#" class="btn button-sekunder btn-block" role="button">Detail Harga</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!--About-->
-    <section id="about" class="bg-light">
-        <div class="container-fluid-max">
-            <h2 class="display-4 text-center mb-5">Tentang Kami</h2>
+    <section id="about" class="bg-light mt-5 pb-5">
+        <div class="container-fluid p-0">
             <div class="row no-gutters">
-                <div class="col-12 col-md-6">
-                    <div style="padding: 15px;">
-                        <h3 class="display-5 text-center mt-3 mb-3">Perjalanan Kami</h3>
-                        <p style="text-align: justify;">
+                <div class="col-12 pt-5 pb-4">
+                    <h2 class="display-4 text-center">Tentang Kami</h2>
+                </div>
+                <div class="col-12 col-lg-6 d-flex align-items-center bg-white">
+                    <div class="p-5">
+                        <h3 class="display-5 text-center mb-4 text-green">Perjalanan Kami</h3>
+                        <p style="text-align: justify; font-size: 1.1rem; line-height: 1.8;">
                             Perjalanan kami dimulai dari sebuah ide sederhana untuk membagikan pengetahuan tentang
                             teknologi dan koding kepada semua orang. Kami percaya bahwa setiap orang berhak mendapatkan
                             akses ke pendidikan berkualitas tinggi, terutama dalam dunia digital yang terus berkembang.
                         </p>
-                        <div class="col-12 pt-3 text-center">
-                            <a href="#" class="btn bg-red btn-lg text-white">Lihat Selengkapnya</a>
+                        <div class="text-center mt-4">
+                            <a href="#" class="btn bg-red text-white btn-lg shadow-sm">Lihat Selengkapnya</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-6">
-                    <div class="vh-100 cover" style="background-image: url(images/banner1.jpeg);"></div>
+                <div class="col-12 col-lg-6">
+                    <div class="cover"
+                        style="background-image: url(images/banner1.jpeg); height: 100%; min-height: 400px;"></div>
                 </div>
-                <div class="col-12 col-md-6">
-                    <div class="vh-100 cover" style="background-image: url(images/banner2.jpeg);"></div>
-                </div>
-                <div class="col-12 col-md-6">
-                    <div class="padding:15px">
-                        <h3 class="display-5 text-center text-green mt-3 mb-3">
+
+                <div class="col-12 col-lg-6 order-lg-4 d-flex align-items-center bg-white">
+                    <div class="p-5">
+                        <h3 class="display-5 text-center text-green mb-4">
                             Tim Kami
                         </h3>
-                        <p style="text-align: justify;">
+                        <p style="text-align: justify; font-size: 1.1rem; line-height: 1.8;">
                             Ini adalah tim kami yang berdedikasi tinggi untuk membantu Anda belajar dan berkembang dalam
                             dunia koding. Kami terdiri dari para ahli di berbagai bidang teknologi, yang siap membagikan
-                            pengetahuan dan pengalaman mereka kepada Anda. Bersama-sama, kami berkomitmen untuk memberikan
-                            pengalaman belajar yang menyenangkan dan bermanfaat.
+                            pengetahuan dan pengalaman mereka kepada Anda. Bersama-sama, kami berkomitmen untuk
+                            memberikan pengalaman belajar yang menyenangkan dan bermanfaat.
                         </p>
-                        <div class="col-12 pt-3 text-center">
-                            <a href="" class="btn bg-red btn-lg text-white">Lihat Kami</a>
+                        <div class="text-center mt-4">
+                            <a href="" class="btn bg-red text-white btn-lg shadow-sm">Lihat Kami</a>
                         </div>
                     </div>
+                </div>
+                <div class="col-12 col-lg-6 order-lg-3">
+                    <div class="cover"
+                        style="background-image: url(images/banner2.jpeg); height: 100%; min-height: 400px;"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!--Contact-->
-    <section id="contact" class="contact">
-
+    <section id="contact" class="container-fluid text-center" style="background-color: #f8f9fa; padding: 60px 0;">
+        <div class="container">
+            <h2 class="display-4 pb-3">Hubungi Kami</h2>
+            <p class="lead pb-4 text-muted">Kirim Pesan Untuk Bergabung Bersama Kami</p>
+            <a href="#" class="btn button-primer btn-lg mb-4 shadow">Kirim Pesan</a>
+        </div>
     </section>
+
+    <footer class="bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center py-4">
+                    <div class="mb-3">
+                        <a href="#" class="text-light mx-2" style="font-size: 1.5rem;"><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-light mx-2" style="font-size: 1.5rem;"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-light mx-2" style="font-size: 1.5rem;"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
+                    <p class="text-secondary m-0">Copyright © Codepolitan 2020</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
